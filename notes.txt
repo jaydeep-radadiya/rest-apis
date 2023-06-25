@@ -1,0 +1,40 @@
+esm: we can use similar syntax to ES6 modules
+generally we use require() to import package
+with esm: import from
+
+dotenv module: to keep environment variables are secret
+
+joi validation library
+
+error thrown by async function didn't handled by middleware
+
+middleware is nothing but normal JS function
+we can apply middleware on route level also like
+router.get('/me', auth, userController.me);
+middleware works between request & response
+
+spread syntax
+
+in express JSON data is by default disable
+to enable, the ablility to read JSON data use express inbuilt middleware
+app.use(express.json());
+
+refresh token: similar to refresh token
+access token has very less expiry
+hence if access token is expired then we need to login again (hectic, bad UX)
+sol: increase expiry of access token
+problem: if someone steal your access token (as it resides in brower) then he able to get protected data
+so keep expiry time as low as possible
+another sol is refresh token
+
+refresh token has very long expiry
+when you give username/password that time you get access token along with refresh token
+refresh token request for new access token (after veryfying refresh token) as the access token has been expired
+so user don't need to login again & again
+
+what is someone steal your refresh token, then he create many access token
+sol: keep list of refresh token in db, once user logout delete refresh token from db
+
+to use await inside the function, function should be async
+
+if we made change in .env file then we need to restart server
